@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+</head>
+<style>
+    a{
+        text-decoration: none;
+    }
+    .form-row{
+        width: 150px;
+    }
+    .form-control{
+        width: 150px;
+    }
+    body{
+        padding-top: 100px;
+    }
+</style>
+<body>
+    <center>
+    <div class="container">
+        <div class="row align-center">
+            <div class="col">
+    <form action="/changetodo" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <table class="table table-dark table-striped table-width-250px table-bordered border-primary table align-center table-hover">
+                Register<input type="text" class="form-control" name="reg" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{dha.reg}}" >
+           <br>
+            <div class="inp">
+                    Name<input type="text" class="form-control" name="todo"  placeholder="Enter Todo" value="{{dha.todo}}">
+        </div>
+        <br>
+        <div class="form-group col-md-6">
+            <select id="budget" name='key' class="form-row" value="{{dha.status}}" >
+                 <option >Active</option>
+                 <option >Non-Active</option>
+            </select>
+            <br>
+           </div>
+           <br>
+        <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+        </table>
+    </form>
+            </div>
+        </div>
+    </div>
+    <h2>
+        {{result}}
+    </h2></center>
+</body>
+</html>

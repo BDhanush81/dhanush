@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+</head>
+<style>
+    a{
+        text-decoration: none;
+        color: beige;
+    }
+    .inp{
+        width: 200px;
+    }
+    .form-select{
+        width: 200px;
+    }
+    body{
+        padding-top: 130px;
+        padding-left: 450px;
+        background-color: rgb(162, 77, 241);
+    }
+    .form-row{
+        width: 390px;
+    }
+    .box{
+        width: 500px;
+        height: 500px;
+        background-color: blueviolet;
+        padding-top: 100px;
+        border-radius: 25px;
+    }
+    a:hover{
+        color: black;
+    }
+</style>
+<body>
+    <div class="box">
+    <div class="container">
+    <form action="storedata" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+       <center> <div>
+            <svg width="64" height="64" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="18" cy="11.28" fill="#000000" rx="4.76" ry="4.7"/>
+                <path fill="#000000" d="M10.78 11.75h.48v-.43a6.7 6.7 0 0 1 3.75-6a4.62 4.62 0 1 0-4.21 6.46Zm13.98-.47v.43h.48A4.58 4.58 0 1 0 21 5.29a6.7 6.7 0 0 1 3.76 5.99Zm-2.47 5.17a21.45 21.45 0 0 1 5.71 2a2.71 2.71 0 0 1 .68.53H34v-3.42a.72.72 0 0 0-.38-.64a18 18 0 0 0-8.4-2.05h-.66a6.66 6.66 0 0 1-2.27 3.58ZM6.53 20.92A2.76 2.76 0 0 1 8 18.47a21.45 21.45 0 0 1 5.71-2a6.66 6.66 0 0 1-2.27-3.55h-.66a18 18 0 0 0-8.4 2.05a.72.72 0 0 0-.38.64V22h4.53Zm14.93 5.77h5.96v1.4h-5.96z"/>
+                <path fill="#000000" d="M32.81 21.26h-6.87v-1a1 1 0 0 0-2 0v1H22v-2.83a20.17 20.17 0 0 0-4-.43a19.27 19.27 0 0 0-9.06 2.22a.76.76 0 0 0-.41.68v5.61h7.11v6.09a1 1 0 0 0 1 1h16.17a1 1 0 0 0 1-1V22.26a1 1 0 0 0-1-1Zm-1 10.36H17.64v-8.36h6.3v.91a1 1 0 0 0 2 0v-.91h5.87Z"/>
+            </svg>
+        </div></center>
+        <br>
+       <center> <div class="inp">
+         <input type="text" class="form-control" name="reg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Register" > 
+        <br>
+         <input type="text" class="form-control" name="todo" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Todo">
+         </div>
+        </center>
+         <br><center> 
+     <div class="form-row">
+         <div class="form-group col-md-6">
+             <select id="budget" name='key' class="form-control">
+                  <option value="Active">Active</option>
+                  <option value="Non-Active">Non-Active</option>
+             </select>
+            </div>
+        </div>
+    </center>
+          <br>
+            <center><button type="submit" value="submit" class="btn btn-primary">Submit</button> 
+                <br>
+</form>
+<br>
+<a href="table"><svg width="25" height="25" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#000000" d="M52.625 12.313C45.182 9.476 37.063 5.796 25.438 2H2c16.22 15.979 6.278 44.019 22.5 60C36.433 54.17 50.065 46.393 62 38.563c-7.174-7.068-7.778-17.216-9.375-26.25m-27.85 47.268c-6.759-7.442-8.175-17.367-9.67-27.848c-1.395-9.773-2.83-19.839-8.958-27.858h18.895c1.316.794 3.885 2.485 4.648 4.019c-4.978.807-10.537 1.763-15.465 2.558c.393.762.751 1.538 1.075 2.325c4.872-.89 10.371-1.941 15.293-2.844a32.674 32.674 0 0 1 1.266 4.016c-4.836 1.061-10.327 2.122-15.094 3.183c.222.824.421 1.655.599 2.494c4.73-1.162 10.184-2.324 14.987-3.486c.101.499.197.999.285 1.502c6.448-1.7 11.596-3.891 18.324-3.94c.155.917.301 1.843.454 2.809c1.147 7.248 2.436 15.381 7.705 21.688c-5.42 3.505-11.215 7.042-16.838 10.475c-5.845 3.57-11.877 7.252-17.506 10.907"/>
+    <path fill="#000000" d="M18.159 24.218c.121.859.227 1.722.327 2.589l29.6-9.221a71.825 71.825 0 0 0-.244-1.912c-9.895 2.847-19.789 5.697-29.683 8.544m4.57 25.898c.331.786.697 1.561 1.097 2.32c4.702-2.653 9.402-5.307 14.101-7.96a25.87 25.87 0 0 1-.952-2.016c-4.748 2.554-9.496 5.104-14.246 7.656"/>
+</svg>Click Table</a></center>
+<h2>
+    {{result}}
+</h2>
+    </div>
+</div>
+</body>
+</html>
